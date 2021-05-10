@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css">
+    
+    .rouge {color:rgb(255, 0, 0);}
+    .vert {color: rgb(0, 128, 0);}
+    .blue {color: rgb(0, 0, 255);}
+        
+        </style>
+</head>
+<body onload="mettre_mot_enCouleur();">
+
+    <div id="mon-texte">Lorem , ipsum dolor sit amet consectetur adipisicing elit . Quo placeat cupiditate natus mollitia alias similique vel atque accusantium amet repellendus sint quae odio quis beatae minima , nam blanditiis ! Similique , necessitatibus . Lorem ipsum dolor sit amet , consectetur adipisicing elit. Ut ullam temporibus totam similique itaque , sed enim voluptatum nam ab aliquid exercitationem , nihil debitis consequuntur praesentium iste accusamus . Veniam , illum . Molestiae .</div>
+
+    <script type="text/javascript">
+
+    /*new Vue({
+        el: '#app',
+        data:{
+            phrases: [],
+            recherche: ",",
+        },
+        methods:{
+            phrase_strong: function(texte) {
+                return texte.replace(this.recherche, "," + this.recherche + "")
+            }
+        }
+    })*/
+
+           
+            var monTexte = document.getElementById("mon-texte"); //Ici récupération du contenu
+
+            function mettre_mot_enCouleur (){
+                var mots = monTexte.textContent.split(" ") //Variable contenant mon texte splitté
+
+                monTexte.innerHTML="";
+
+                mots.forEach((mot) => {
+                    var sp = monTexte.appendChild(document.createElement('span')); //Ajout de span à chaque mots du texte
+                    sp.textContent = mot + " ";
+                    
+                    if(mot==="Lorem"){sp.classList.add("rouge")}; //Ajoute une classe au mot que je choisis
+                    if(mot==="amet"){sp.classList.add("vert")}; //Ajoute une classe au mot que je choisis
+                    if(mot===","){sp.classList.add("blue")};
+                })
+            }
+           
+
+    </script>
+    
+</body>
+</html>
